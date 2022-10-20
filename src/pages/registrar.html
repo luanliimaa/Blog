@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/registrar.css">
+    <title>Registrar no Blog</title>
+</head>
+<body>
+    
+    <main>
+        <form>
+            <h2>Registrar</h2>
+
+            <input type="text" name="nome" id="nome" placeholder="Nome do usuário" required>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="text" name="foto" id="foto" placeholder="Foto de Perfil" required>
+            <input type="password" name="senha" id="senha" placeholder="Senha" required>
+
+            <p>Já possui uma conta? <span id="login">Efetue o login</span></p>
+
+            <button id="registrar" type="submit">Registrar</button>
+        </form>
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="/src/scripts/registrar.js"></script>
+</body>
+</html>
