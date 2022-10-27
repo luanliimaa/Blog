@@ -19,7 +19,12 @@ class Registro{
                 }
     
                 //console.log(data)
-                await ApiRequests.criarUsuario(data)
+                const res = await ApiRequests.criarUsuario(data)
+                if (res.message){
+                    Toast.create(res.message, "red", 5000)
+                } else {
+                    window.location.assign("../../index.html")
+                }
             } else {
                 form.reportValidity()
             }

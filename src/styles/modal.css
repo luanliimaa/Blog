@@ -1,0 +1,150 @@
+:root{
+    --black: #1E1E1E;
+    --dark-gray: #5C5D8D;
+    --light-gray: #ECF0F1;
+    --gray: #C3C3C3;
+    --blue: #6495edbf;
+    --white: #FFFFFF;
+    --light-blue: #6495ED;
+    --light-red: #FF3F5B;
+}
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    box-sizing: border-box;
+    background-color: var(--light-blue);
+    width: 90%;
+    border-radius: 10px;
+    padding: 0 16px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 2px solid var(--dark-gray);
+}
+
+.modal-title{
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px var(--black);
+}
+
+.modal-close {
+    background-color: red;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 16px 0;
+}
+
+.show-modal {
+    display: flex;
+}
+
+.show-modal .modal {
+    animation: animateModal 1s;
+}
+
+#modal-editar .modal-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#modal-editar .modal-body textarea{
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: none;
+    color: #363457;
+    font-size: 16px;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    height: 100px;
+    padding: 10px;
+}
+
+#modal-editar .modal-body textarea::placeholder{
+    color: #363457;
+    font-size: 20px;
+}
+
+#modal-editar .modal-body button{
+    background-color: var(--dark-gray);
+    border: 1px solid var(--dark-gray);
+    border-radius: 20px;
+    color: var(--white);
+    width: fit-content;
+    padding: 10px 50px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/*-- DELETAR MODAL --> */
+
+#modal-deletar .modal-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#modal-deletar .modal-body textarea{
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: none;
+    color: #363457;
+    font-size: 16px;
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    height: 100px;
+    padding: 10px;
+}
+
+#modal-deletar .modal-body button{
+    background-color: var(--light-red);
+    border: 1px solid var(--light-red);
+    border-radius: 20px;
+    color: var(--white);
+    width: fit-content;
+    padding: 10px 50px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+@keyframes animateModal {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

@@ -10,13 +10,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/reset.css">
     <link rel="stylesheet" href="/src/styles/homePage.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
     <title>Pagina Principal do Blog</title>
 </head>
 <body>
     
+    <header>
+        <div class="flex container">
+            <div class="user__data">
+                <img src="" alt="">
+                <h2>Luan Gustavo</h2>
+            </div>
+            <button>Logout</button>
+        </div>
+    </header>
+    
     <main>
-        
+        <section class="postar">
+            <textarea class="postar__text" placeholder="No que está pensando?"></textarea>
+            <button class="postar__button">Postar</button>
+        </section>
+
+        <section class="posts">
+            <ul class="posts__list">
+
+            </ul>
+        </section>
     </main>
+
+    <div class="modal-wrapper" id="modal-editar">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Editar</h3>
+                <button class="modal-close">X</button>
+            </div>
+            <div class="modal-body">
+                <textarea class="editar__text" placeholder="No que está pensando?"></textarea>
+                <button class="editar__button">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-wrapper" id="modal-deletar">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Deletar</h3>
+                <button class="modal-close">X</button>
+            </div>
+            <div class="modal-body">
+                <textarea class="deletar__text" placeholder="No que está pensando?" disabled></textarea>
+                <button class="deletar__button">Deletar</button>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="module" src="/src/scripts/homePage.js"></script>
