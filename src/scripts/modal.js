@@ -23,6 +23,15 @@ export class Modal{
                 modal.classList.toggle("show-modal")
             })
         })
+
+        const modal = document.querySelector(".modal-wrapper")
+        if (modal){
+            modal.addEventListener("click", (event) => {
+                if (event.target === modal){
+                    modal.classList.toggle("show-modal")
+                }
+            })
+        }
     }
 }
 

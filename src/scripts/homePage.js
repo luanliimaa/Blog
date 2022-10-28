@@ -11,14 +11,19 @@ class HomePage{
 
             div.innerHTML = ""
 
+            const divDataImagem = document.createElement("div")
+            divDataImagem.classList.add("data__imagem")
+
             const imagem = document.createElement("img")
             imagem.src = user.avatarUrl
             imagem.alt = "Avatar do usuário"
 
+            divDataImagem.append(imagem)
+
             const nome = document.createElement("h2")
             nome.innerText = user.username
 
-            div.append(imagem, nome)
+            div.append(divDataImagem, nome)
         }
     }
 
@@ -31,26 +36,37 @@ class HomePage{
         posts.data.forEach((post) => {
             const li = document.createElement("li")
 
-            const divUserInfo = document.createElement("div")
-            divUserInfo.classList.add("post__user")
+            const divPostCabecalho = document.createElement("div")
+            divPostCabecalho.classList.add("post__cabecalho")
+
+            const divPostImage = document.createElement("div")
+            divPostImage.classList.add("cabecalho__imagem")
 
             const imagem = document.createElement("img")
             imagem.src = post.user.avatarUrl
             imagem.alt = "Avatar do usuário"
+            imagem.classList.add("imagem__cover")
+
+            divPostImage.append(imagem)
+            divPostCabecalho.append(divPostImage)
+
+            const divPostConteudo = document.createElement("div")
+            divPostConteudo.classList.add("post__conteudo")
 
             const nome = document.createElement("h2")
             nome.innerText = post.user.username
 
-            divUserInfo.append(imagem, nome)
-
-            const divPostContent = document.createElement("div")
-            divPostContent.classList.add("post__content")
-
             const conteudo = document.createElement("p")
             conteudo.innerText = post.content
 
-            const divPostInfo = document.createElement("div")
-            divPostInfo.classList.add("content_info")
+            divPostConteudo.append(nome, conteudo)
+
+
+            const divPostRodape = document.createElement("div")
+            divPostRodape.classList.add("post__rodape")
+
+            const divRodapeData = document.createElement("div")
+            divRodapeData.classList.add("rodape__data")
 
             let data
             if (post.updatedAt){
@@ -61,11 +77,13 @@ class HomePage{
             const dataElement = document.createElement("span")
             dataElement.innerText = data.toLocaleDateString()
 
-            let divPostDono = false
+            divRodapeData.append(dataElement)
+
+            let divRodapeButtons = false
 
             if (post.user.id == localStorage.getItem("@blog:userId")){
-                divPostDono = document.createElement("div")
-                divPostDono.classList.add("content__dono")
+                divRodapeButtons = document.createElement("div")
+                divRodapeButtons.classList.add("rodape__buttons")
 
                 const editarImagem = document.createElement("img")
                 editarImagem.src = "../img/editar.png"
@@ -99,18 +117,16 @@ class HomePage{
                     Modal.mostrar("deletar")
                 })
 
-                divPostDono.append(editarImagem, lixeiraImagem)
+                divRodapeButtons.append(editarImagem, lixeiraImagem)
             }
 
-            if (divPostDono){
-                divPostInfo.append(dataElement, divPostDono)
+            if (divRodapeButtons){
+                divPostRodape.append(divRodapeData, divRodapeButtons)
             } else {
-                divPostInfo.append(dataElement)
+                divPostRodape.append(divRodapeData)
             }
 
-            divPostContent.append(conteudo, divPostInfo)
-
-            li.append(divUserInfo, divPostContent)
+            li.append(divPostCabecalho, divPostConteudo, divPostRodape)
             listElement.append(li)
         })
 

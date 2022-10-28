@@ -34,23 +34,30 @@ header .flex{
     padding: 5px 0;
 }
 
-header .flex div{
+.user__data{
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.flex div h2{
+.user__data h2{
     font-size: 20px;
     font-weight: 700;
     color: var(--white);
     text-shadow: 2px 2px var(--black);
 }
 
-.flex div img{
-    width: 50px;
-    height: 50px;
+.data__imagem{
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.data__imagem img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
 }
 
 .flex button{
@@ -130,6 +137,7 @@ main{
 }
 
 .posts__list li{
+    box-sizing: border-box;
     background-color: var(--light-gray);
     border-radius: 20px;
     padding: 10px;
@@ -139,30 +147,39 @@ main{
     max-width: 700px;
 }
 
-.post__user{
+.cabecalho__imagem{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.cabecalho__imagem img{
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+}
+
+.imagem__cover{
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.post__conteudo{
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
 
-.post__user img{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-}
-
-.post__user h2{
+.post__conteudo h2{
     font-size: 24px;
     font-weight: 700;
     color: var(--black);
 }
 
-.post__content{
-    width: 100%;
-}
-
-.post__content p{
+.post__conteudo p{
     width: 100%;
     color: #363457;
     font-weight: 400;
@@ -171,34 +188,79 @@ main{
     line-height: 18px;
 }
 
-.content_info{
+.post__rodape{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.content_info span{
+.rodape__data{
     color: #363457;
     font-size: 15px;
+    margin-bottom: 20px;
 }
 
-.content__dono{
+.rodape__buttons{
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
 @media (min-width: 768px) {
+    .container{
+        max-width: 80%;
+    }
+
     .posts__list li{
         flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 30px 20px 15px 20px;
     }
 
-    .post__user{
-        width: 30%;
+    .post__cabecalho{
+        width: 20%;
+        display: flex;
+        justify-content: center;
     }
 
-    .post__content{
-        width: 70%;
+    .cabecalho__imagem{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+
+    .cabecalho__imagem img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .post__conteudo{
+        box-sizing: border-box;
+        width: 80%;
+        padding-left: 30px;
+        align-items: flex-start;
+        justify-content: baseline;
+    }
+
+    .post__rodape{
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .rodape__data{
+        width: fit-content;
+        margin: 0 0 0 auto;
+        text-align: end;
+    }
+
+    .rodape__buttons{
+        width: 20%;
+        justify-content: center;
+        gap: 30px;
     }
 }
 
